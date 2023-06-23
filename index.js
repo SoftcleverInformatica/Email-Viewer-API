@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 require('dotenv').config();
 const cors = require('cors');
+const moment = require('moment-timezone');
 
 const MYSQL_USER = process.env.MYSQL_USER;
 const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD;
@@ -38,7 +39,14 @@ app.get('/', (req, res) => {
     if (err) {
       throw err;
     }
-    res.send(result);
+    //fiz isso por causa que ele estava puxando a data do banco de dados errado
+    const emails = result.map((email) => {
+      const data_e_horaUTC = moment.utc(email.data_e_hora);
+      const data_e_horaLocal = data_e_horaUTC.tz('America/Sao_Paulo').format('YYYY-MM-DD HH:mm:ss');
+      return { ...email, data_e_hora: data_e_horaLocal };
+    });
+
+    res.send(emails);
   });
 });
 
@@ -51,6 +59,7 @@ app.post('/email', (req, res) => {
     if (err) {
       throw err;
     }
+
     res.status(200).send('Email salvo com sucesso!!');
   });
 });
