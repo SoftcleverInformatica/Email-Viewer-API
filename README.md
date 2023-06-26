@@ -1,5 +1,6 @@
 Para acessar o post url/email
-parametros = nenhum
+parametros = token
+exemplo de url = http://localhost:5000?token=<seu token>
 body:{
   "nome": "<nome de quem enviou email>",
   "email": "<email de quem enviou>",
@@ -10,9 +11,12 @@ body:{
 
 Get
 parametros opcional = ultimos
-exemplo http://localhost:5000?ultimos=5
+parametro obrigatorio = token
+exemplo http://localhost:5000?ultimos=5?token=<seu token>
 acessando essa rota a api ira retornar os ultimos 5 emails salvos no banco, caso não envie esse parametro, a api irá retornar todos
 
+'''TOKEN'''
+o mesmo token que foi definido no arquivo .env terá que ser passado como parametro ao fazer as requisições
 
 COMANDO PARA CRIAR BANCO PARA TESTE
 
@@ -28,4 +32,4 @@ CREATE TABLE email (
   data_e_hora datetime
 );
 
-Necessário de um arquivo .env, com as variaveis de ambiente para rodar bonitinho
+Necessário de um arquivo .env, com as variaveis de ambiente para rodar bonitinho, veja o arquivo .env-example para ver como este arquivo precisa estar
