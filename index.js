@@ -10,6 +10,11 @@ const TOKEN = process.env.TOKEN;
 const app = express();
 const port = 5000;
 
+Headers = [
+  {key: 'Access-Control-Allow-Credentials', value: '*'},
+  {key: 'Acsess-Control-Allow-Origin', value: '*'}
+]
+
 app.use(cors());
 app.use(express.json()); // Middleware para parsing do corpo das requisições como JSON
 
@@ -26,7 +31,6 @@ db.connect((err) => {
   }
   console.log('Conexão com o banco de dados estabelecida!');
 });
-
 
 
 app.get('/', (req, res) => {
