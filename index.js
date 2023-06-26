@@ -74,7 +74,7 @@ app.post('/email', (req, res) => {
       throw err;
     }
 
-    res.status(200).send('Email salvo com sucesso!!');
+    res.status(200).send({'mensagem':'Email salvo com sucesso!!'});
   });
 });
 
