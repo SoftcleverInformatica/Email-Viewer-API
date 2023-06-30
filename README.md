@@ -6,7 +6,8 @@ body:{
   "email": "<email de quem enviou>",
   "telefone": "<telefone>",
   "mensagem": "<mensagem do email>",
-  "quem_enviou": "<url do site que enviou o email>"
+  "quem_enviou": "<url do site que enviou o email>",
+  "empresa": "<empresa que enviou>"
 }
 
 Get
