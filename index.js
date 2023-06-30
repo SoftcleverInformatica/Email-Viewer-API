@@ -65,10 +65,10 @@ app.post('/email', (req, res) => {
     res.status(404).send({"erro":"token não informado ou incorreto"})
     return
   } 
-  const { nome, email, telefone, mensagem, quem_enviou } = req.body;
-  const sql = 'INSERT INTO email (nome, email, telefone, mensagem, data_e_hora, site_que_enviou) VALUES (?, ?, ?, ?, ?, ?)';
+  const { nome, email, telefone, mensagem, empresa, quem_enviou } = req.body;
+  const sql = 'INSERT INTO email (nome, email, telefone, mensagem, data_e_hora, site_que_enviou, empresa) VALUES (?, ?, ?, ?, ?, ?, ?)';
   const data_e_hora = new Date()
-  const values = [nome, email, telefone, mensagem, data_e_hora, quem_enviou];
+  const values = [nome, email, telefone, mensagem, data_e_hora, quem_enviou, empresa];
   db.query(sql, values, (err, result) => {
     if (err) {
       throw err;

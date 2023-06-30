@@ -15,7 +15,7 @@ parametro obrigatorio = token
 exemplo http://localhost:5000?ultimos=5?token=<seu token>
 acessando essa rota a api ira retornar os ultimos 5 emails salvos no banco, caso não envie esse parametro, a api irá retornar todos
 
-'''TOKEN'''
+### TOKEN
 o mesmo token que foi definido no arquivo .env terá que ser passado como parametro ao fazer as requisições
 
 COMANDO PARA CRIAR BANCO PARA TESTE
@@ -29,7 +29,8 @@ CREATE TABLE email (
   telefone VARCHAR(255),
   mensagem TEXT,
   site_que_enviou varchar(100),
-  data_e_hora datetime
+  data_e_hora datetime,
+  empresa varchar(255)
 );
 
 Necessário de um arquivo .env, com as variaveis de ambiente para rodar bonitinho, veja o arquivo .env-example para ver como este arquivo precisa estar
